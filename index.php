@@ -1,7 +1,9 @@
 <?php
 
     include_once("includes/data/data.php");
-
+    if (empty($_GET['page'])){
+        $_GET['page']= "";
+    }
     $include = match ($_GET["page"]){
 
         "modifier" => "includes/pages/modify.php",

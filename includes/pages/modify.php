@@ -1,5 +1,7 @@
 <?php
-
+    if (empty($_POST['method'])){
+        $_POST['method']= "";
+    }
     if (!isset($_GET['id'])){
         header('Location: ./index.php?page=list');
         die();

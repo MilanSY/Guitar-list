@@ -1,8 +1,8 @@
 {
     "guitars": [
         {
-            "nom": "Fender Parlor",
-            "image": "Fender-Parlor.png",
+            "nom": "Fender Strat",
+            "image": "Fender-Strat.png",
             "couleur": "rouge",
             "forme": "Stratocaster",
             "marque": "Fender",
