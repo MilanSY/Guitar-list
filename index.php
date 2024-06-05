@@ -1,10 +1,6 @@
 <?php
-    
-    session_start();
 
-    if(!isset($_SESSION['guitars'])){
-        include_once("includes/data/data.php");
-    }
+    include_once("includes/data/data.php");
 
     $include = match ($_GET["page"]){
 
