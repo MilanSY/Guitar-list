@@ -14,14 +14,13 @@
                 {
                     $uploads_dir = './assets/images/';
                     var_dump($_FILES);
-                    $tmp_name = $_FILES["tmp_name"];
+                    $tmp_name = $_FILES["fichier_image"]["tmp_name"];
                     list($file_name, $file_extention) = explode(".",$_FILES["name"]);
                     $new_name = $data['guitars'][$_POST['id']]['nom'];
                     $alias_name =  explode(" ", $new_name);
                     $new_name = implode("-", $alias_name);
                     $destination = $uploads_dir . $new_name . "." . "png"; 
                     $data['guitars'][$_POST['id']]['image'] = $new_name . "." . "png";
-                    var_dump(move_uploaded_file($tmp_name, $destination ));
                     if (move_uploaded_file($tmp_name, $destination )) {
                         $fileContents = file_get_contents($destination);
                         echo "ok17";
@@ -32,6 +31,7 @@
             }
             $json = json_encode($data, JSON_PRETTY_PRINT);
             file_put_contents("includes/data/data.json",$json);
+            header("Location: ./index.php?page=details&&id=".$_POST['id']);
         }
         ?>
 
