@@ -5,7 +5,7 @@
 
     <?php
 
-    foreach($_SESSION['guitars'] as $key => $guitar){
+    foreach($data['guitars'] as $key => $guitar){
     ?>
 
     <div class="guitar">
@@ -29,7 +29,8 @@
                 <p><?= $guitar['marque']?></p>
             </div>
         </div>
-        <form action="?page=details" method="post">
+        <form action="" method="get">
+            <input type="hidden" name="page" id="page" value="details">
             <input type="hidden" name="id" id="id" value="<?= $key ?>">
             <button>Voir en détails</button>
         </form>
