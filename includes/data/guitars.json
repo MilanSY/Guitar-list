@@ -1,0 +1,42 @@
+[
+    {
+        "nom": "Fender Strat",
+        "image": "guitar-id-0.png",
+        "couleur": "rouge",
+        "forme": "Stratocaster",
+        "marque": "Fender",
+        "bois": "\u00c9pic\u00e9a"
+    },
+    {
+        "nom": "SG Standard '61 Sideways Vibrola",
+        "image": "guitar-id-1.png",
+        "couleur": "Vintage cherry",
+        "forme": "SG",
+        "marque": "Gibson",
+        "bois": "\u00c9rable"
+    },
+    {
+        "nom": "Ibanez GRGR330EXBKF RG Gio",
+        "image": "guitar-id-2.png",
+        "couleur": "Blanc",
+        "forme": "Hyper Strat",
+        "marque": "Ibanez",
+        "bois": "Acajou"
+    },
+    {
+        "nom": "Yamaha Pacifica",
+        "image": "guitar-id-3.png",
+        "couleur": "Cr\u00e8me",
+        "forme": "Super Strat",
+        "marque": "Yamaha",
+        "bois": "Tilleul"
+    },
+    {
+        "nom": "Squier Jazzmaster",
+        "image": "guitar-id-4.png",
+        "couleur": "Blanc",
+        "forme": "Jazzmaster",
+        "marque": "Squier by Fender",
+        "bois": "\u00c9pic\u00e9a"
+    }
+]
