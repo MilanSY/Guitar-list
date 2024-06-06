@@ -1,5 +1,5 @@
 <?php
-
+    include_once("includes/functions/functions.php");
     include_once("includes/data/data.php");
     if (empty($_GET['page'])){
         $_GET['page']= "";

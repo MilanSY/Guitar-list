@@ -13,3 +13,27 @@
             return true;
         }
     }
+
+    /**
+     * Permet de verifier si une valeur est dans un array contenant des arrays
+     * @param mixed $value la valeur cherchée
+     * @param array $array l'array contenant des arrays
+     * @return bool true s
+     */
+    function name_in_array(mixed $value, array $arrays) : bool {
+        foreach ($arrays as $key => $names){
+            if(in_array($value,$names,true)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function empty_array(array $array) : bool {
+        foreach($array as $key => $value){
+            if(!empty($value)){
+                return false;
+            }
+        }
+        return true;
+    }   

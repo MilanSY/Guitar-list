@@ -38,5 +38,13 @@
         "forme": "Jazzmaster",
         "marque": "Squier by Fender",
         "bois": "\u00c9pic\u00e9a"
+    },
+    {
+        "nom": "b",
+        "image": "guitar-id-5.png",
+        "couleur": "b",
+        "forme": "a",
+        "marque": "a",
+        "bois": "a"
     }
 ]
