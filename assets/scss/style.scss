@@ -2,10 +2,34 @@ body{
     font-family: 'Noto sans';
 }
 
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    button{
+        
+    }
+}
+
 h1{
     text-align: center;
     font-size: 4rem;
     margin-bottom: 3rem;
+}
+
+button{
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 16px;
+    text-align: center;
+    margin: 1rem;
 }
 
 .guitar-container{
@@ -34,18 +58,7 @@ h1{
             font-size: 2rem;
         }
 
-        button{
-            background-color: #2ea44f;
-            border: 1px solid rgba(27, 31, 35, .15);
-            border-radius: 6px;
-            color: #fff;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
-            padding: 6px 16px;
-            text-align: center;
-            margin: 1rem;
-          }
+        
 
         &__image{
             width: 50%;

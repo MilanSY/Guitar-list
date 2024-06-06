@@ -1,15 +1,19 @@
 
+<header>
+    <a><button>connexion</button></a>
+    <h1>Listes des Guitares</h1>
+    <a><button>ajouter</button></a>
+</header>
 
-<h1>Listes des Guitares</h1>
 <div class="guitar-container">
 
     <?php
 
-    foreach($data['guitars'] as $key => $guitar){
+    foreach($guitars as $key => $guitar){
     ?>
 
     <div class="guitar">
-        <img class="guitar__image" src="./assets/images/<?= $guitar['image']?>"/>
+        <img class="guitar__image" src="./assets/images/guitars/<?= $guitar['image']?>"/>
         <h2><?= $guitar['nom']?></h2>
         <div class="guitar__details">
             <div class="guitar__details--flex">

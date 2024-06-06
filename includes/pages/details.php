@@ -10,26 +10,26 @@
 <h1>Détails de la guitare</h1>
 <div class="details-container">
     <div class="main">
-        <img class="image" src="./assets/images/<?= $data['guitars'][$_GET['id']]['image']?>"/>
-        <h2><?= $data['guitars'][$_GET['id']]['nom']?></h2>
+        <img class="image" src="./assets/images/guitars/<?= $guitars[$_GET['id']]['image']?>"/>
+        <h2><?= $guitars[$_GET['id']]['nom']?></h2>
     </div>
     <div class="secondary">
         <div class="details">
             <div class="details--flex">
                 <h3>Couleur</h3>
-                <p><?= $data['guitars'][$_GET['id']]['couleur']?></p>
+                <p><?= $guitars[$_GET['id']]['couleur']?></p>
             </div>
             <div class="details--flex">
                 <h3>Bois</h3>
-                <p><?= $data['guitars'][$_GET['id']]['bois']?></p>
+                <p><?= $guitars[$_GET['id']]['bois']?></p>
             </div>
             <div class="details--flex">
                 <h3>Forme</h3>
-                <p><?= $data['guitars'][$_GET['id']]['forme']?></p>
+                <p><?= $guitars[$_GET['id']]['forme']?></p>
             </div>
             <div class="details--flex">
                 <h3>Marque</h3>
-                <p><?= $data['guitars'][$_GET['id']]['marque']?></p>
+                <p><?= $guitars[$_GET['id']]['marque']?></p>
             </div>
         </div>
         <div class="button-flex">
