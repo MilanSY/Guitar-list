@@ -1,13 +1,46 @@
 <?php
-    if (empty($_POST['method'])){
-        $_POST['method']= "";
-    }
-    if (!isset($_GET['id'])){
-        header('Location: ./index.php?page=list');
-        die();
-    }
-    else{
-        if($_POST['method'] === "modifier"){
+    if (!empty($_POST)){
+        if($_POST['method'] === "ajouter"){
+
+            $errors=[
+                "nom" => "",
+                "image" => "",
+                "couleur" => "",
+                "forme" => "",
+                "marque" => "",
+                "bois" => ""
+            ];
+            $value=[
+                "nom" => "",
+                "image" => "",
+                "couleur" => "",
+                "forme" => "",
+                "marque" => "",
+                "bois" => ""
+            ];
+            $display=[
+                "nom" => "none",
+                "image" => "none",
+                "couleur" => "none",
+                "forme" => "none",
+                "marque" => "none",
+                "bois" => "none"
+            ];
+            
+            
+
+            foreach($_POST as $key => $value){
+                if(isset($value)){
+                    $values[$key] = "value='".$value."'";
+                    if(!is_under_255($_POST[$key])){
+                        $errors[$key] = "Ce champs ne peut pas dépassé les 255 caractères";
+                        $displays[$key] = "block";
+                    }
+                }
+            }
+
+
+
             foreach($guitars[$_POST['id']] as $key => $detail){
                 if ($key != "image"){
                     $guitars[$_POST['id']][$key] = $_POST[$key];
@@ -33,13 +66,14 @@
             file_put_contents("includes/data/guitars.json",$json);
             header("Location: ./index.php?page=details&&id=".$_POST['id']);
         }
+    }
         ?>
 
         <div class="modify">
-            <form action="?page=modifier&id=<?= $_GET['id'] ?>" method="post" class="modify__form" enctype="multipart/form-data">
+            <form action="?page=add?>" method="post" class="modify__form" enctype="multipart/form-data">
 
-                <input type="hidden" name="id" id="id" value="<?= $_GET['id']?>">
-                <input type="hidden" name="method" id="method" value="modifier">
+                <input type="hidden" name="id" id="id" value="<?= count($guitars)?>">
+                <input type="hidden" name="method" id="method" value="ajouter">
                 <label for="fichier_image">fichier image: (png, jpeg, jpg, webp)*<br>
                     <div>
                         <p id="fichier_image_choisit"><?= $guitars[$_GET['id']]['image'] ?></p>
@@ -60,11 +94,10 @@
                     }
                 ?>
  
-                <button>envoyer</button>
+                <button>ajouter</button>
 
             </form>
         </div>
-        <script src="assets/scripts/modify.js"></script>
 
         <?php
-    }
+    

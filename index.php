@@ -6,12 +6,26 @@
     }
     $include = match ($_GET["page"]){
 
+        "ajouter" => "includes/pages/add.php",
+ 
         "modifier" => "includes/pages/modify.php",
 
         "details" => "includes/pages/details.php",
 
         "list" => "includes/pages/list.php",
         default => "includes/pages/list.php"
+
+    };
+    $header_title = match ($_GET["page"]){
+
+        "ajouter" => "Ajouter une guitare",
+
+        "modifier" => "Modifier la guitare",
+
+        "details" => "Détails de la guitare",
+
+        "list" => "Listes des Guitares",
+        default => "Listes des Guitares"
 
     };
 ?>
@@ -27,6 +41,7 @@
 <body>
     <?php
 
+    include_once("includes/template/header.php");
 
     include_once($include);
 

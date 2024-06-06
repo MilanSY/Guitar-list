@@ -1,9 +1,5 @@
 
-<header>
-    <a><button>connexion</button></a>
-    <h1>Listes des Guitares</h1>
-    <a><button>ajouter</button></a>
-</header>
+
 
 <div class="guitar-container">
 
