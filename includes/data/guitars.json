@@ -46,5 +46,13 @@
         "forme": "a",
         "marque": "a",
         "bois": "a"
+    },
+    {
+        "nom": "*\/*\/5*\/*",
+        "image": "guitar-id-6.png",
+        "couleur": "&lt;?php die(); ?&gt;",
+        "forme": "55",
+        "marque": "ss",
+        "bois": "penis"
     }
 ]
