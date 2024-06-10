@@ -1,0 +1,9 @@
+{
+    "milanjuino@gmail.com" : {
+        "name": "Milan",
+        "image": "admin.png",
+        "role": "admin",
+        "email": "milanjuino@gmail.com",
+        "password" : "$argon2i$v=19$m=65536,t=4,p=1$SzdoQ012LzJDc2RqRDgvcg$qQWsxxK9KNx6U0gfNuLQUWCuzCtSImDP800opD1DzSo"
+    }
+}
