@@ -11,11 +11,9 @@
     <div class="guitar">
         <img class="guitar__image" src="./assets/images/guitars/<?= $guitar['image']?>"/>
         <h2><?= $guitar['nom']?></h2>
-        <form action="" method="get">
-            <input type="hidden" name="page" id="page" value="details">
-            <input type="hidden" name="id" id="id" value="<?= $key ?>">
+        <a href="/details/<?= $key ?>">
             <button>Voir en détails</button>
-        </form>
+        </a>
     </div>
 
     <?php } ?>

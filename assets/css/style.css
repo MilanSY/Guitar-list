@@ -56,6 +56,8 @@ button {
 }
 .guitar-container .guitar h2 {
   font-size: 2rem;
+  text-align: center;
+  width: 80%;
 }
 .guitar-container .guitar__image {
   width: 50%;

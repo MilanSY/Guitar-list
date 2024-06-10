@@ -32,7 +32,7 @@
 
             foreach($_POST as $key => $value){
                 if(!empty($value) && $key != "method" && $key != "id"){
-                    $values[$key] = htmlentities($value);
+                    $values[$key] = strip_tags($value);
                     if(!is_under_255($_POST[$key])){
                         $errors[$key] = "Ce champs ne peut pas dépassé les 255 caractères";
                         $displays[$key] = "block";
@@ -44,10 +44,8 @@
                     $displays[$key] = "block";
                 }
             }
-
-
             if(empty_array($errors)){
-                if ($_FILES["error"] == UPLOAD_ERR_OK && $_FILES['name'] != "0"){
+                if (!empty($_FILES ["fichier_image"]['name'])){
                     $uploads_dir = './assets/images/guitars/';
                     $tmp_name = $_FILES["fichier_image"]["tmp_name"];
                     list($file_name, $file_extention) = explode(".",$_FILES["name"]);
@@ -58,11 +56,16 @@
                         $guitars[] = $values;
                         $json = json_encode($guitars, JSON_PRETTY_PRINT);
                         file_put_contents("includes/data/guitars.json",$json);
-                        header("Location: ./index.php?page=details&&id=".$_POST['id']);
+                        header("Location: ../details/".$_POST['id']);
                     } else {
-                        echo "Failed to move the file.";
+                        $errors['image'] = "echec de l'envoi du fichier";
+                        $displays['image'] = "block";
                     }
-                } 
+                }
+                else{
+                    $errors['image'] = "l'image est obligatoire";
+                    $displays['image'] = "block";
+                }
             }
         }
     }
@@ -81,6 +84,8 @@
             </div>
             <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" id="fichier_image"  name="fichier_image" hidden/>
         </label>
+        <p class="errormsg" style="display: <?= $displays['image'] ?>"><?= $errors['image'] ?></p>
+        
         <?php
             foreach($values as $key => $detail){
                 if ($key != "image" && $key != "id"){

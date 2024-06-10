@@ -1,7 +1,7 @@
 <?php
     
     if (!isset($_GET['id'])){
-        header('Location: ./index.php?page=list');
+        header('Location: ../index.php?page=list');
         die();
     }
 
@@ -30,12 +30,11 @@
         "bois" => "none"
     ];
     
-    var_dump($_POST);
     if (!empty($_POST)){
 
         foreach($_POST as $key => $value){
             if($key != "method" && $key != "id"){
-                $values[$key] = htmlspecialchars($value);
+                $values[$key] = strip_tags($value);
             }
         }
         if($_POST['method'] === "modifier"){
@@ -46,7 +45,6 @@
                     $values[$key] = $new_name ;
                 }
                 else if(!empty($value)){
-                    $values[$key] = htmlentities($value);
                     if(!is_under_255($_POST[$key])){
                         $errors[$key] = "Ce champs ne peut pas dépassé les 255 caractères";
                         $displays[$key] = "block";
@@ -56,34 +54,31 @@
                 {
                     $errors[$key] = "Ce champs est obligatoire";
                     $displays[$key] = "block";
-                    var_dump($key);
                 }
             }
-            var_dump($errors);
             if(empty_array($errors)){
-                var_dump($_FILES);
-                if ($_FILES['name'] != "0")
+                if (!empty($_FILES ["fichier_image"]['name']))
                 {
                     $uploads_dir = './assets/images/guitars/';
                     $tmp_name = $_FILES["fichier_image"]["tmp_name"];
                     $new_name = "guitar-id-".$_GET['id'];
                     $destination = $uploads_dir . $new_name . "." . "png"; 
-                    var_dump($destination);
                     if (move_uploaded_file($tmp_name, $destination )) {
                         $fileContents = file_get_contents($destination);
                         $guitars[$_GET['id']] = $values;
                         $json = json_encode($guitars, JSON_PRETTY_PRINT);
                         file_put_contents("includes/data/guitars.json",$json);
-                        header("Location: ./index.php?page=details&&id=".$_GET['id']);
+                        header("Location: ../details/".$_GET['id']);
                     } else {
-                        echo "Failed to move the file.";
+                        $errors['image'] = "echec de l'envoi du fichier";
+                        $displays['image'] = "block";
                     }
                 }
                 else{
                     $guitars[$_GET['id']] = $values;
                     $json = json_encode($guitars, JSON_PRETTY_PRINT);
                     file_put_contents("includes/data/guitars.json",$json);
-                    header("Location: ./index.php?page=details&&id=".$_POST['id']);
+                    header("Location: ../details/".$_POST['id']);
                 }
             }
         }
@@ -92,7 +87,7 @@
     {
         foreach($guitars[$_GET['id']] as $key => $value){
             if($key != "method" && $key != "id"){
-                $values[$key] = htmlspecialchars($value);
+                $values[$key] = strip_tags($value);
             }
         }
     }
@@ -106,10 +101,12 @@
                 <label for="fichier_image">fichier image: (png, jpeg, jpg, webp)*<br>
                     <div>
                         <p id="fichier_image_choisit"><?= $guitars[$_GET['id']]['image'] ?></p>
-                        <img src="./assets/images/svg/cloud.svg">
+                        <img src="../assets/images/svg/cloud.svg">
                     </div>
                     <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" id="fichier_image"  name="fichier_image" hidden/>
                 </label>
+                <p class="errormsg" style="display: <?= $displays['image'] ?>"><?= $errors['image'] ?></p>
+        
                 <?php
                     foreach($values as $key => $detail){
                         if ($key != "image"){
