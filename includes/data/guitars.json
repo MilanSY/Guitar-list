@@ -8,12 +8,12 @@
         "bois": "\u00c9pic\u00e9a"
     },
     {
-        "nom": "SG Standard '61 Sideways Vibrola",
+        "nom": "SG Standard Sideways Vibrola",
         "image": "guitar-id-1.png",
         "couleur": "Vintage cherry",
         "forme": "SG",
         "marque": "Gibson",
-        "bois": "\u00c9rable"
+        "bois": "\u00e9rable"
     },
     {
         "nom": "Ibanez GRGR330EXBKF RG Gio",
@@ -50,9 +50,33 @@
     {
         "nom": "*\/*\/5*\/*",
         "image": "guitar-id-6.png",
-        "couleur": "&lt;?php die(); ?&gt;",
+        "couleur": "a",
         "forme": "55",
         "marque": "ss",
-        "bois": "penis"
+        "bois": "s"
+    },
+    {
+        "nom": "aze",
+        "image": "guitar-id-7.png",
+        "couleur": "drgfzjdhszmqkjdhmdkjqs",
+        "forme": "df",
+        "marque": "sd",
+        "bois": "jdhmdk"
+    },
+    {
+        "nom": "dgfga",
+        "image": "guitar-id-8.png",
+        "couleur": "zerf",
+        "forme": "reza",
+        "marque": "zer",
+        "bois": "azre"
+    },
+    {
+        "nom": "n",
+        "image": "guitar-id-9.png",
+        "couleur": "n",
+        "forme": "n",
+        "marque": "n",
+        "bois": "n"
     }
 ]
