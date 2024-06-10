@@ -1,5 +1,7 @@
 body {
-  font-family: "Noto sans";
+  font-family: "Hind";
+  margin: 0;
+  background-color: #f8f2e2;
 }
 
 header {
@@ -7,6 +9,15 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #f8f2e2;
+  width: 100%;
+}
+header h1 {
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 3rem;
+  font-family: "cinzel";
+  font-weight: 350;
 }
 header button {
   font-size: 2rem;
@@ -15,17 +26,11 @@ header button {
   width: 12rem;
 }
 
-h1 {
-  text-align: center;
-  font-size: 4rem;
-  margin-bottom: 3rem;
-}
-
 button {
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, 0.15);
+  background-color: #A7C8A1;
+  border: 0;
   border-radius: 6px;
-  color: #fff;
+  color: #f1faee;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
@@ -35,27 +40,26 @@ button {
 }
 
 .guitar-container {
-  width: 90vw;
+  width: 93vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 5vw;
-  background-color: rgba(248, 248, 248, 0.9725490196);
-  padding: 3rem 5vw 0 5vw;
+  gap: 2vw;
+  background-color: #f8f2e2;
+  padding: 3rem 5vw;
   margin-left: -1vw;
 }
 .guitar-container .guitar {
-  width: 40vw;
+  width: 25vw;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: center;
   background-color: #ffffff;
-  border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 26px;
 }
 .guitar-container .guitar h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-align: center;
   width: 80%;
 }
@@ -92,7 +96,6 @@ button {
   justify-content: space-evenly;
   align-items: center;
   background-color: #ffffff;
-  border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 26px;
   margin: 0 10vw 0 10vw;
 }
@@ -113,8 +116,8 @@ button {
   width: fit-content;
 }
 .details-container button {
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, 0.15);
+  background-color: #A7C8A1;
+  border: 0;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
@@ -158,11 +161,13 @@ button {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: start;
+  gap: 0;
   background-color: #ffffff;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 26px;
-  margin: 0 10vw 0 10vw;
+  margin: 1rem 10vw;
+  padding: 2rem 0;
 }
 .modify__form {
   display: flex;
@@ -179,11 +184,11 @@ button {
   font-weight: 600;
   padding: 6px 16px;
   text-align: center;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 .modify button {
-  background-color: #2ea44f;
-  border: 1px solid rgba(27, 31, 35, 0.15);
+  background-color: #A7C8A1;
+  border: 0;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
@@ -194,11 +199,13 @@ button {
   margin: 1rem;
 }
 .modify label {
-  font-family: "Noto sans";
   font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.modify label h3 {
+  margin: 0;
 }
 .modify label div {
   height: fit-content;
@@ -211,7 +218,6 @@ button {
   font-weight: 600;
   padding: 6px 16px;
   text-align: center;
-  margin: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -220,4 +226,53 @@ button {
   height: 32px;
   width: 32px;
   margin: 4.5%;
+}
+
+.login {
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: start;
+  gap: 0;
+  background-color: #ffffff;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 26px;
+  margin: 1rem 10vw;
+  padding: 3rem 0;
+}
+.login form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.login input {
+  background-color: rgba(248, 248, 248, 0.9725490196);
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  color: #252525;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 16px;
+  text-align: center;
+  margin: 0 1rem;
+}
+.login button {
+  background-color: #A7C8A1;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 6px 16px;
+  text-align: center;
+  margin: 1rem;
+}
+.login label {
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

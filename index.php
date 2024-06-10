@@ -4,30 +4,40 @@
     if (empty($_GET['page'])){
         $_GET['page']= "";
     }
-    $include = match ($_GET["page"]){
 
-        "ajouter" => "includes/pages/add.php",
+    switch ($_GET["page"]){
+
+        case "connexion":
+            $include = "includes/pages/login.php";
+            $header_title = "Se connecter";
+            break;
+
+        case "ajouter":
+            $include = "includes/pages/add.php";
+            $header_title = "Ajouter une guitare";
+            break;
  
-        "modifier" => "includes/pages/modify.php",
+        case "modifier":
+            $include = "includes/pages/modify.php";
+            $header_title = "Modifier la guitare";
+            break;
 
-        "details" => "includes/pages/details.php",
+        case "details":
+            $include = "includes/pages/details.php";
+            $header_title = "Détails de la guitare";
+            break;
 
-        "list" => "includes/pages/list.php",
-        default => "includes/pages/list.php"
+        case "list":
+            $include = "includes/pages/list.php";
+            $header_title = "Listes des Guitares";
+            break;
 
+        default:
+            $include = "includes/pages/list.php";
+            $header_title = "Listes des Guitares";
+            break;
     };
-    $header_title = match ($_GET["page"]){
 
-        "ajouter" => "Ajouter une guitare",
-
-        "modifier" => "Modifier la guitare",
-
-        "details" => "Détails de la guitare",
-
-        "list" => "Listes des Guitares",
-        default => "Listes des Guitares"
-
-    };
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +47,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
     <title>Guitars List</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <?php
