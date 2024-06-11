@@ -56,7 +56,7 @@
                         $guitars[] = $values;
                         $json = json_encode($guitars, JSON_PRETTY_PRINT);
                         file_put_contents("includes/data/guitars.json",$json);
-                        header("Location: ../details/".$_POST['id']);
+                        header("Location: ../details?id=".$_POST['id']);
                     } else {
                         $errors['image'] = "echec de l'envoi du fichier";
                         $displays['image'] = "block";
@@ -73,7 +73,7 @@
 ?>
 
 <div class="modify">
-    <form action="?page=ajouter" method="post" class="modify__form" enctype="multipart/form-data">
+    <form action="" method="post" class="modify__form" enctype="multipart/form-data">
 
         <input type="hidden" name="id" id="id" value="<?= count($guitars)?>">
         <input type="hidden" name="method" id="method" value="ajouter">

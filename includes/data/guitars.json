@@ -40,36 +40,36 @@
         "bois": "\u00c9pic\u00e9a"
     },
     {
-        "nom": "b",
+        "nom": "PRS SE CE 24 TU",
         "image": "guitar-id-5.png",
-        "couleur": "b",
-        "forme": "a",
-        "marque": "a",
-        "bois": "a"
+        "couleur": "Bleu",
+        "forme": "PRS",
+        "marque": "PRS",
+        "bois": "Ch\u00eane"
     },
     {
-        "nom": "*\/*\/5*\/*",
+        "nom": "Squier Thinline",
         "image": "guitar-id-6.png",
-        "couleur": "a",
-        "forme": "55",
-        "marque": "ss",
-        "bois": "s"
+        "couleur": "verte",
+        "forme": "Thinline",
+        "marque": "Squier by Fender",
+        "bois": "Boulot"
     },
     {
-        "nom": "aze",
+        "nom": "PRS SE",
         "image": "guitar-id-7.png",
-        "couleur": "drgfzjdhszmqkjdhmdkjqs",
-        "forme": "df",
-        "marque": "sd",
-        "bois": "jdhmdk"
+        "couleur": "Silver Sky",
+        "forme": "Stratocasteur",
+        "marque": "PRS",
+        "bois": "Bois"
     },
     {
-        "nom": "dgfga",
+        "nom": "Fender Parlor",
         "image": "guitar-id-8.png",
-        "couleur": "zerf",
-        "forme": "reza",
-        "marque": "zer",
-        "bois": "azre"
+        "couleur": "bois",
+        "forme": "Acoustic",
+        "marque": "Fender",
+        "bois": "Sapin"
     },
     {
         "nom": "n",
@@ -78,5 +78,13 @@
         "forme": "n",
         "marque": "n",
         "bois": "n"
+    },
+    {
+        "nom": "guitar",
+        "image": "guitar-id-10.png",
+        "couleur": "guitar",
+        "forme": "guitar",
+        "marque": "guitar",
+        "bois": "guitar"
     }
 ]
