@@ -14,7 +14,7 @@ if(!empty($_POST)){
     if (!empty($_POST['email'])){
         if(password_verify($_POST['password'], $users[$_POST['email']]['password'])){
             $_SESSION = $users[$_POST['email']];
-            header("Location: ../home/1");
+            header("Location: ../home");
         }
         else
         {

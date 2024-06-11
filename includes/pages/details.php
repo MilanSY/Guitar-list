@@ -10,7 +10,7 @@
 
         <div class="details-container">
             <div class="main">
-                <img class="image" src="../assets/images/guitars/<?= $guitars[$_GET['id']]['image']?>"/>
+                <img class="image" src="./assets/images/guitars/<?= $guitars[$_GET['id']]['image']?>"/>
                 <h2><?= $guitars[$_GET['id']]['nom']?></h2>
             </div>
             <div class="secondary">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="button-flex">
-                    <a href="../modifier/<?= $_GET['id']?>">
+                    <a href="../modifier?id=<?= $_GET['id']?>">
                         <button>modifier</button>
                     </a>
                     <a href="../home">

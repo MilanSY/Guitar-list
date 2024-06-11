@@ -68,7 +68,7 @@
                         $guitars[$_GET['id']] = $values;
                         $json = json_encode($guitars, JSON_PRETTY_PRINT);
                         file_put_contents("includes/data/guitars.json",$json);
-                        header("Location: ../details/".$_GET['id']);
+                        header("Location: ../details?id=".$_GET['id']);
                     } else {
                         $errors['image'] = "echec de l'envoi du fichier";
                         $displays['image'] = "block";
@@ -78,7 +78,7 @@
                     $guitars[$_GET['id']] = $values;
                     $json = json_encode($guitars, JSON_PRETTY_PRINT);
                     file_put_contents("includes/data/guitars.json",$json);
-                    header("Location: ../details/".$_POST['id']);
+                    header("Location: ../details?id=".$_POST['id']);
                 }
             }
         }
@@ -94,14 +94,14 @@
         ?>
 
         <div class="modify">
-            <form action="?page=modifier&id=<?= $_GET['id'] ?>" method="post" class="modify__form" enctype="multipart/form-data">
+            <form action="?id=<?= $_GET['id'] ?>" method="post" class="modify__form" enctype="multipart/form-data">
 
                 <input type="hidden" name="id" id="id" value="<?= $_GET['id']?>">
                 <input type="hidden" name="method" id="method" value="modifier">
                 <label for="fichier_image">fichier image: (png, jpeg, jpg, webp)*<br>
                     <div>
                         <p id="fichier_image_choisit"><?= $guitars[$_GET['id']]['image'] ?></p>
-                        <img src="../assets/images/svg/cloud.svg">
+                        <img src="./assets/images/svg/cloud.svg">
                     </div>
                     <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" id="fichier_image"  name="fichier_image" hidden/>
                 </label>
@@ -125,7 +125,7 @@
 
             </form>
         </div>
-        <script src="assets/scripts/modify.js"></script>
+        <script src="../assets/scripts/modify.js"></script>
 
         <?php
     

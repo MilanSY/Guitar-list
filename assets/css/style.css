@@ -37,16 +37,21 @@ button {
   padding: 6px 16px;
   text-align: center;
   margin: 1rem;
+  transition-duration: 0.5s;
+}
+button:hover {
+  background-color: #208253;
+  transition-duration: 0.5s;
 }
 
 .guitar-container {
-  width: 93vw;
+  width: 90%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2vw;
+  flex-wrap: row;
+  justify-content: center;
+  gap: 5%;
   background-color: #f8f2e2;
-  padding: 3rem 5vw;
+  padding: 3rem 5%;
   margin-left: -1vw;
 }
 .guitar-container .guitar {
@@ -89,6 +94,13 @@ button {
   margin: 0;
 }
 
+.paging {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .details-container {
   width: 80vw;
   display: flex;
@@ -114,18 +126,6 @@ button {
 .details-container h2 {
   font-size: 2rem;
   width: fit-content;
-}
-.details-container button {
-  background-color: #A7C8A1;
-  border: 0;
-  border-radius: 6px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 6px 16px;
-  text-align: center;
-  margin: 1rem;
 }
 .details-container .button-flex {
   display: flex;
@@ -185,18 +185,6 @@ button {
   padding: 6px 16px;
   text-align: center;
   margin: 0 1rem;
-}
-.modify button {
-  background-color: #A7C8A1;
-  border: 0;
-  border-radius: 6px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 6px 16px;
-  text-align: center;
-  margin: 1rem;
 }
 .modify label {
   font-weight: 600;
