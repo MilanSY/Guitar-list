@@ -1,43 +1,100 @@
 <?php
-    if (empty($_POST['method'])){
-        $_POST['method']= "";
-    }
+    
     if (!isset($_GET['id'])){
-        header('Location: ./index.php?page=list');
+        header('Location: ../index.php?page=list');
         die();
     }
-    else{
+
+    $errors=[
+        "nom" => "",
+        "image" => "",
+        "couleur" => "",
+        "forme" => "",
+        "marque" => "",
+        "bois" => ""
+    ];
+    $values=[
+        "nom" => "",
+        "image" => "",
+        "couleur" => "",
+        "forme" => "",
+        "marque" => "",
+        "bois" => ""
+    ];
+    $display=[
+        "nom" => "none",
+        "image" => "none",
+        "couleur" => "none",
+        "forme" => "none",
+        "marque" => "none",
+        "bois" => "none"
+    ];
+    
+    if (!empty($_POST)){
+
+        foreach($_POST as $key => $value){
+            if($key != "method" && $key != "id"){
+                $values[$key] = strip_tags($value);
+            }
+        }
         if($_POST['method'] === "modifier"){
-            foreach($guitars[$_POST['id']] as $key => $detail){
-                if ($key != "image"){
-                    $guitars[$_POST['id']][$key] = $_POST[$key];
+
+            foreach($values as $key => $value){
+                if ($key === "image"){
+                    $new_name = "guitar-id-".$_GET['id'].".png";
+                    $values[$key] = $new_name ;
                 }
-                else if ($key = 'image' && $_FILES["error"] == UPLOAD_ERR_OK)
-                {
-                    $uploads_dir = './assets/images/guitars/';
-                    var_dump($_FILES);
-                    $tmp_name = $_FILES["fichier_image"]["tmp_name"];
-                    list($file_name, $file_extention) = explode(".",$_FILES["name"]);
-                    $new_name = "guitar-id-".$_POST['id'];
-                    $destination = $uploads_dir . $new_name . "." . "png"; 
-                    $guitars[$_POST['id']]['image'] = $new_name . "." . "png";
-                    var_dump($destination);
-                    if (move_uploaded_file($tmp_name, $destination )) {
-                        $fileContents = file_get_contents($destination);
-                    } else {
-                        echo "Failed to move the file.";
+                else if(!empty($value)){
+                    if(!is_under_255($_POST[$key])){
+                        $errors[$key] = "Ce champs ne peut pas dépassé les 255 caractères";
+                        $displays[$key] = "block";
                     }
                 } 
+                else 
+                {
+                    $errors[$key] = "Ce champs est obligatoire";
+                    $displays[$key] = "block";
+                }
             }
-            $json = json_encode($guitars, JSON_PRETTY_PRINT);
-            file_put_contents("includes/data/guitars.json",$json);
-            header("Location: ./index.php?page=details&&id=".$_POST['id']);
+            if(empty_array($errors)){
+                if (!empty($_FILES ["fichier_image"]['name']))
+                {
+                    $uploads_dir = './assets/images/guitars/';
+                    $tmp_name = $_FILES["fichier_image"]["tmp_name"];
+                    $new_name = "guitar-id-".$_GET['id'];
+                    $destination = $uploads_dir . $new_name . "." . "png"; 
+                    if (move_uploaded_file($tmp_name, $destination )) {
+                        $fileContents = file_get_contents($destination);
+                        $guitars[$_GET['id']] = $values;
+                        $json = json_encode($guitars, JSON_PRETTY_PRINT);
+                        file_put_contents("includes/data/guitars.json",$json);
+                        header("Location: ../details?id=".$_GET['id']);
+                    } else {
+                        $errors['image'] = "echec de l'envoi du fichier";
+                        $displays['image'] = "block";
+                    }
+                }
+                else{
+                    $guitars[$_GET['id']] = $values;
+                    $json = json_encode($guitars, JSON_PRETTY_PRINT);
+                    file_put_contents("includes/data/guitars.json",$json);
+                    header("Location: ../details?id=".$_POST['id']);
+                }
+            }
         }
+    }
+    else
+    {
+        foreach($guitars[$_GET['id']] as $key => $value){
+            if($key != "method" && $key != "id"){
+                $values[$key] = strip_tags($value);
+            }
+        }
+    }
         ?>
 
-        <h1>Modifier la guitare</h1>
         <div class="modify">
-            <form action="?page=modifier&id=<?= $_GET['id'] ?>" method="post" class="modify__form" enctype="multipart/form-data">
+            <form action="?id=<?= $_GET['id'] ?>" method="post" class="modify__form" enctype="multipart/form-data">
 
                 <input type="hidden" name="id" id="id" value="<?= $_GET['id']?>">
                 <input type="hidden" name="method" id="method" value="modifier">
@@ -48,13 +105,16 @@
                     </div>
                     <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" id="fichier_image"  name="fichier_image" hidden/>
                 </label>
+                <p class="errormsg" style="display: <?= $displays['image'] ?>"><?= $errors['image'] ?></p>
+        
                 <?php
-                    foreach($guitars[$_GET['id']] as $key => $detail){
+                    foreach($values as $key => $detail){
                         if ($key != "image"){
                             ?>
 
                                 <label for="<?= $key ?>"><h3> <?= $key ?> : </h3></label>
-                                <input name="<?= $key ?>" id="<?= $key ?>" value="<?= htmlentities($detail) ?>" />
+                                <input name="<?= $key ?>" id="<?= $key ?>" value="<?= $detail ?>" />
+                                <p class="errormsg" style="display: <?= $displays[$key] ?>"><?= $errors[$key] ?></p>
 
                             <?php
                         }
@@ -65,7 +125,7 @@
 
             </form>
         </div>
-        <script src="assets/scripts/modify.js"></script>
+        <script src="../assets/scripts/modify.js"></script>
 
         <?php
-    }
+    

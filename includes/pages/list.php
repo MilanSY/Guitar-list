@@ -1,45 +1,50 @@
 
-<header>
-    <a><button>connexion</button></a>
-    <h1>Listes des Guitares</h1>
-    <a><button>ajouter</button></a>
-</header>
+<?php
+    if(empty($_GET['paging'])){
+        $_GET['paging'] = "1";
+    }
+    $list = $paging[$_GET['paging']];
+
+    if($_GET['paging'] < 1){
+        $_GET['paging'] = "1";
+    }
+    if($_GET['paging'] > count($paging)){
+        $_GET['paging'] = count($paging);
+    }
+?>
 
 <div class="guitar-container">
 
     <?php
 
-    foreach($guitars as $key => $guitar){
+    foreach($list as $key => $guitar){
     ?>
 
-    <div class="guitar">
-        <img class="guitar__image" src="./assets/images/guitars/<?= $guitar['image']?>"/>
-        <h2><?= $guitar['nom']?></h2>
-        <div class="guitar__details">
-            <div class="guitar__details--flex">
-                <h3>Couleur</h3>
-                <p><?= $guitar['couleur']?></p>
-            </div>
-            <div class="guitar__details--flex">
-                <h3>Bois</h3>
-                <p><?= $guitar['bois']?></p>
-            </div>
-            <div class="guitar__details--flex">
-                <h3>Forme</h3>
-                <p><?= $guitar['forme']?></p>
-            </div>
-            <div class="guitar__details--flex">
-                <h3>Marque</h3>
-                <p><?= $guitar['marque']?></p>
-            </div>
+        <div class="guitar">
+            <img class="guitar__image" src="./assets/images/guitars/<?= $guitar['image']?>"/>
+            <h2><?= $guitar['nom']?></h2>
+            <a href="/details?id=<?= $key+3*intval($_GET['paging']-1) ?>">
+                <button>Voir en détails</button>
+            </a>
         </div>
-        <form action="" method="get">
-            <input type="hidden" name="page" id="page" value="details">
-            <input type="hidden" name="id" id="id" value="<?= $key ?>">
-            <button>Voir en détails</button>
-        </form>
-    </div>
-
+    
     <?php } ?>
+    
 
+</div>
+
+<div class="paging">
+    
+    <a <?php if(!($_GET['paging'] <= 1)){?>href="?paging=<?= $_GET['paging']-1 ?>" <?php } ?>><button><</button></a>
+    <?php 
+    foreach($paging as $key => $tab){ 
+    ?>
+
+        <a href="?paging=<?= $key ?>">
+            <button <?php if($key == $_GET['paging']){echo 'style="background-color:#208253;"';} ?> ><?= $key ?></button>
+        </a>
+
+    <?php }?>
+    <a <?php if (!($_GET['paging'] >= count($paging))){ ?>href="?paging=<?= $_GET['paging']+1 ?>" <?php } ?>><button>></button></a>
+    
 </div>

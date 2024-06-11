@@ -1,32 +1,55 @@
 <?php
-
+    include_once("includes/functions/functions.php");
     include_once("includes/data/data.php");
-    if (empty($_GET['page'])){
-        $_GET['page']= "";
-    }
-    $include = match ($_GET["page"]){
 
-        "modifier" => "includes/pages/modify.php",
+    $uri=parse_url($_SERVER["REQUEST_URI"])["path"];
 
-        "details" => "includes/pages/details.php",
+    switch ($uri){
+        
+        case "/":
+            $include = "includes/pages/list.php";
+            $header_title = "Listes des Guitares";
+            break;
 
-        "list" => "includes/pages/list.php",
-        default => "includes/pages/list.php"
+        case "/home":
+            $include = "includes/pages/list.php";
+            $header_title = "Listes des Guitares";
+            break;
 
+        case "/connexion":
+            $include = "includes/pages/login.php";
+            $header_title = "Se connecter";
+            break;
+
+        case "/ajouter":
+            $include = "includes/pages/add.php";
+            $header_title = "Ajouter une guitare";
+            break;
+ 
+        case "/modifier":
+            $include = "includes/pages/modify.php";
+            $header_title = "Modifier la guitare";
+            break;
+
+        case "/details":
+            $include = "includes/pages/details.php";
+            $header_title = "Détails de la guitare";
+            break;
+
+        default:
+            $include = "";
+            $header_title = "Listes des Guitares";
+            break;
     };
+
+
+    include_once("includes/template/head.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <title>Guitars List</title>
-</head>
+
 <body>
     <?php
-
+    include_once("includes/template/header.php");
 
     include_once($include);
 

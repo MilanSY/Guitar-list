@@ -1,6 +1,6 @@
 [
     {
-        "nom": "Fender Strat",
+        "nom": "Fender Stratocaster",
         "image": "guitar-id-0.png",
         "couleur": "rouge",
         "forme": "Stratocaster",
@@ -8,12 +8,12 @@
         "bois": "\u00c9pic\u00e9a"
     },
     {
-        "nom": "SG Standard '61 Sideways Vibrola",
+        "nom": "SG Standard Sideways Vibrola",
         "image": "guitar-id-1.png",
         "couleur": "Vintage cherry",
         "forme": "SG",
         "marque": "Gibson",
-        "bois": "\u00c9rable"
+        "bois": "\u00e9rable"
     },
     {
         "nom": "Ibanez GRGR330EXBKF RG Gio",
@@ -38,5 +38,53 @@
         "forme": "Jazzmaster",
         "marque": "Squier by Fender",
         "bois": "\u00c9pic\u00e9a"
+    },
+    {
+        "nom": "PRS SE CE 24 TU",
+        "image": "guitar-id-5.png",
+        "couleur": "Bleu",
+        "forme": "PRS",
+        "marque": "PRS",
+        "bois": "Ch\u00eane"
+    },
+    {
+        "nom": "Squier Thinline",
+        "image": "guitar-id-6.png",
+        "couleur": "verte",
+        "forme": "Thinline",
+        "marque": "Squier by Fender",
+        "bois": "Boulot"
+    },
+    {
+        "nom": "PRS SE",
+        "image": "guitar-id-7.png",
+        "couleur": "Silver Sky",
+        "forme": "Stratocasteur",
+        "marque": "PRS",
+        "bois": "Bois"
+    },
+    {
+        "nom": "Fender Parlor",
+        "image": "guitar-id-8.png",
+        "couleur": "bois",
+        "forme": "Acoustic",
+        "marque": "Fender",
+        "bois": "Sapin"
+    },
+    {
+        "nom": "n",
+        "image": "guitar-id-9.png",
+        "couleur": "n",
+        "forme": "n",
+        "marque": "n",
+        "bois": "n"
+    },
+    {
+        "nom": "guitar",
+        "image": "guitar-id-10.png",
+        "couleur": "guitar",
+        "forme": "guitar",
+        "marque": "guitar",
+        "bois": "guitar"
     }
 ]
