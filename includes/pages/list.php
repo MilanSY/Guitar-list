@@ -34,19 +34,17 @@
 </div>
 
 <div class="paging">
-    <?php
-    if(!($_GET['paging'] <= 1)){ 
-    ?>
-        <a href="?paging=<?= $_GET['paging']-1 ?>"><button><</button></a>
-    <?php }
+    
+    <a <?php if(!($_GET['paging'] <= 1)){?>href="?paging=<?= $_GET['paging']-1 ?>" <?php } ?>><button><</button></a>
+    <?php 
     foreach($paging as $key => $tab){ 
     ?>
 
-        <a href="?paging=<?= $key ?>"><button ><?= $key ?></button></a>
+        <a href="?paging=<?= $key ?>">
+            <button <?php if($key == $_GET['paging']){echo 'style="background-color:#208253;"';} ?> ><?= $key ?></button>
+        </a>
 
-    <?php }
-    if (!($_GET['paging'] >= count($paging))){
-    ?>
-        <a href="?paging=<?= $_GET['paging']+1 ?>"><button>></button></a>
-    <?php } ?>
+    <?php }?>
+    <a <?php if (!($_GET['paging'] >= count($paging))){ ?>href="?paging=<?= $_GET['paging']+1 ?>" <?php } ?>><button>></button></a>
+    
 </div>
