@@ -1,8 +1,20 @@
 <?php
+
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+
+    session_start();
+    
     include_once("includes/functions/functions.php");
     include_once("includes/data/data.php");
 
-    $uri=parse_url($_SERVER["REQUEST_URI"])["path"];
+
+    $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
+
+    $left_button = "connexion";
+    $left_path = "../connexion";
+    $right_button = "ajouter";
+    $right_path = "../ajouter";
 
     switch ($uri){
         
@@ -19,16 +31,32 @@
         case "/connexion":
             $include = "includes/pages/login.php";
             $header_title = "Se connecter";
+            $left_button = "accueil";
+            $left_path = "../home";
+            break;
+        
+        case "/deconnexion":
+            $include = "includes/pages/logout.php";
+            $header_title = "Déconnection";
+            break;
+        
+        case "/admin":
+            $include = "includes/admin/admin.php";
+            $header_title = "Administration";
             break;
 
         case "/ajouter":
             $include = "includes/pages/add.php";
             $header_title = "Ajouter une guitare";
+            $right_button = "accueil";
+            $right_path = "../home";
             break;
  
         case "/modifier":
             $include = "includes/pages/modify.php";
             $header_title = "Modifier la guitare";
+            $right_button = "accueil";
+            $right_path = "../home";
             break;
 
         case "/details":

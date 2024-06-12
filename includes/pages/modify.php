@@ -1,7 +1,7 @@
 <?php
     
-    if (!isset($_GET['id'])){
-        header('Location: ../index.php?page=list');
+    if (!isset($_GET['id']) || $_SESSION['role'] !== 'admin'){
+        header('Location: ../home');
         die();
     }
 
@@ -56,7 +56,7 @@
                     $displays[$key] = "block";
                 }
             }
-            if(empty_array($errors)){
+            if(empty_array($errors) && $_SESSION['role'] === 'admin'){
                 if (!empty($_FILES ["fichier_image"]['name']))
                 {
                     $uploads_dir = './assets/images/guitars/';
@@ -125,7 +125,7 @@
 
             </form>
         </div>
-        <script src="../assets/scripts/modify.js"></script>
+        <script src="./assets/scripts/modify.js"></script>
 
         <?php
     

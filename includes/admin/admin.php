@@ -1,17 +1,16 @@
-
 <?php
+var_dump($paging_incoming);
     if(empty($_GET['paging'])){
         $_GET['paging'] = "1";
     }
     if($_GET['paging'] < 1){
         $_GET['paging'] = "1";
     }
-    if($_GET['paging'] > count($paging)){
-        $_GET['paging'] = count($paging);
+    if($_GET['paging'] > count($paging_incoming)){
+        $_GET['paging'] = count($paging_incoming);
     }
-    $list = $paging[$_GET['paging']];
+    $list = $paging_incoming[$_GET['paging']];
 
-    
 ?>
 
 <div class="guitar-container">
@@ -22,7 +21,7 @@
     ?>
 
         <div class="guitar">
-            <img class="guitar__image" src="./assets/images/guitars/<?= $guitar['image']?>"/>
+            <img class="guitar__image" src="./assets/images/guitars/incoming/<?= $guitar['image']?>"/>
             <h2><?= $guitar['nom']?></h2>
             <a href="/details?id=<?= $key+3*intval($_GET['paging']-1) ?>">
                 <button>Voir en détails</button>
@@ -38,7 +37,7 @@
     
     <a <?php if(!($_GET['paging'] <= 1)){?>href="?paging=<?= $_GET['paging']-1 ?>" <?php } ?>><button><</button></a>
     <?php 
-    foreach($paging as $key => $tab){ 
+    foreach($paging_incoming as $key => $tab){ 
     ?>
 
         <a href="?paging=<?= $key ?>">
@@ -46,6 +45,6 @@
         </a>
 
     <?php }?>
-    <a <?php if (!($_GET['paging'] >= count($paging))){ ?>href="?paging=<?= $_GET['paging']+1 ?>" <?php } ?>><button>></button></a>
+    <a <?php if (!($_GET['paging'] >= count($paging_incoming))){ ?>href="?paging=<?= $_GET['paging']+1 ?>" <?php } ?>><button>></button></a>
     
 </div>

@@ -1,7 +1,7 @@
 <?php
 
-    if (!isset($_GET['id'])){
-        header('Location: ./index.php?page=list');
+    if (!isset($_GET['id']) ){
+        header('Location: ../home');
         die();
     }
     else{
@@ -33,9 +33,13 @@
                     </div>
                 </div>
                 <div class="button-flex">
+                    <?php 
+                    if (!empty($_SESSION)){
+                    if($_SESSION['role'] === 'admin'){ ?>
                     <a href="../modifier?id=<?= $_GET['id']?>">
                         <button>modifier</button>
                     </a>
+                    <?php }} ?>
                     <a href="../home">
                         <button>retour à la liste</button>
                     </a>
