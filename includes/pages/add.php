@@ -44,7 +44,7 @@
                     $displays[$key] = "block";
                 }
             }
-            if(empty_array($errors)){
+            if(empty_array($errors) && $_SESSION['role'] === 'admin'){
                 if (!empty($_FILES ["fichier_image"]['name'])){
                     $uploads_dir = './assets/images/guitars/';
                     $tmp_name = $_FILES["fichier_image"]["tmp_name"];
@@ -67,6 +67,29 @@
                     $displays['image'] = "block";
                 }
             }
+            else if(empty_array($errors)){
+                if (!empty($_FILES ["fichier_image"]['name'])){
+                    $uploads_dir = './assets/images/guitars/incoming/';
+                    $tmp_name = $_FILES["fichier_image"]["tmp_name"];
+                    list($file_name, $file_extention) = explode(".",$_FILES["name"]);
+                    $new_name = "incoming-id-".$_POST['id'];
+                    $destination = $uploads_dir . $new_name . "." . "png"; 
+                    $values['image'] = $new_name . "." . "png";
+                    if (move_uploaded_file($tmp_name, $destination )) {
+                        $incoming[] = $values;
+                        $json = json_encode($incoming, JSON_PRETTY_PRINT);
+                        file_put_contents("includes/data/incoming.json",$json);
+                        header("Location: ../ajouter?success=1");
+                    } else {
+                        $errors['image'] = "echec de l'envoi du fichier";
+                        $displays['image'] = "block";
+                    }
+                }
+                else{
+                    $errors['image'] = "l'image est obligatoire";
+                    $displays['image'] = "block";
+                }
+            }
         }
     }
     
@@ -74,6 +97,13 @@
 
 <div class="modify">
     <form action="" method="post" class="modify__form" enctype="multipart/form-data">
+
+        <?php 
+        if (!empty($_GET)){
+            if (isset($_GET['success'])){ ?>
+                <p>Votre guitare a été envoyé avec succès</p>
+        <?php }
+        }?>
 
         <input type="hidden" name="id" id="id" value="<?= count($guitars)?>">
         <input type="hidden" name="method" id="method" value="ajouter">

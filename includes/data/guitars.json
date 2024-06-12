@@ -72,7 +72,7 @@
         "bois": "Sapin"
     },
     {
-        "nom": "n",
+        "nom": "g",
         "image": "guitar-id-9.png",
         "couleur": "n",
         "forme": "n",
@@ -86,5 +86,21 @@
         "forme": "guitar",
         "marque": "guitar",
         "bois": "guitar"
+    },
+    {
+        "nom": "s",
+        "image": "guitar-id-11.png",
+        "couleur": "szdaz",
+        "forme": "s",
+        "marque": "s",
+        "bois": "Sapindfbbfdb"
+    },
+    {
+        "nom": "c",
+        "image": "guitar-id-12.png",
+        "couleur": "c",
+        "forme": "c",
+        "marque": "c",
+        "bois": "c"
     }
 ]

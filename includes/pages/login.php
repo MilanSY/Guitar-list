@@ -32,7 +32,7 @@ if(!empty($_POST)){
 
 
 
-<div class="login">
+<div class="modify">
     <form action="#" method="post">
         <label for="email">email</label>
         <input type="email" name="email" id="email" />
