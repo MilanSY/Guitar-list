@@ -11,7 +11,7 @@ if (file_put_contents($destination, $file_content)) {
     $guitars[] = $guitar;
     $json = json_encode($guitars, JSON_PRETTY_PRINT);
     file_put_contents("includes/data/guitars.json",$json);
-    header("Location: ../home");
+    header("Location: ../admin/supprimer?tab=incoming&id=".$_GET['id']);
 } else {
     echo "echec de l'envoi du fichier";
 }

@@ -5,6 +5,7 @@
 body{
     font-family: $defaultfont;
     margin: 0;
+    padding: 0;
     background-color: $greybeige;
 }
 
@@ -100,15 +101,14 @@ button{
 }
 
 .guitar-container{
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-wrap: row;
     justify-content: center;
     gap: 5%;
+    padding: 2.5rem 0;
 
     background-color: $greybeige;
-    padding: 3rem 5%;
-    margin-left: -1vw;
 
     .guitar{
         width: 25vw;

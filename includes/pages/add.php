@@ -1,11 +1,11 @@
 <?php
     $errors=[
-        "nom" => "",
-        "image" => "",
-        "couleur" => "",
-        "forme" => "",
-        "marque" => "",
-        "bois" => ""
+        "nom" => 0,
+        "image" => 0,
+        "couleur" => 0,
+        "forme" => 0,
+        "marque" => 0,
+        "bois" => 0
     ];
     $values=[
         "nom" => "",
@@ -15,7 +15,7 @@
         "marque" => "",
         "bois" => ""
     ];
-    $display=[
+    $displays=[
         "nom" => "none",
         "image" => "none",
         "couleur" => "none",
@@ -122,7 +122,7 @@
             foreach($values as $key => $detail){
                 if ($key != "image" && $key != "id"){
                     ?>
-
+                        
                         <label for="<?= $key ?>"><h3> <?= $key ?> : </h3></label>
                         <input name="<?= $key ?>" id="<?= $key ?>" value="<?= $values[$key] ?>" />
                         <p class="errormsg" style="display: <?= $displays[$key] ?>"><?= $errors[$key] ?></p>
