@@ -67,3 +67,45 @@
         }
         return $paging;
     }
+
+    function get_guitar_by_id(mixed $id, array $tab) : array{
+        foreach($tab as $guitar){
+            if($guitar['id'] == $id){
+                return $guitar;
+            }
+        }
+    }
+
+    function get_key_by_id(mixed $id, array $tab) : int{
+        foreach($tab as $key => $guitar){
+            if($guitar['id'] == $id){
+                return $key;
+            }
+        }
+    }
+
+    function delete_from_incoming(mixed $id, array $tab){
+        unlink("./assets/images/guitars/incoming/".$tab[get_key_by_id($id, $tab)]['image']);
+        unset($tab[get_key_by_id($id, $tab)]);
+        $json = json_encode($tab, JSON_PRETTY_PRINT);
+        file_put_contents("includes/data/incoming.json",$json);
+        header("Location: ../admin");
+    }
+
+    function delete_from_guitars(mixed $id, array $tab){
+        unlink("./assets/images/guitars/".$tab[get_key_by_id($id, $tab)]['image']);
+        unset($tab[get_key_by_id($id, $tab)]);
+        $json = json_encode($tab, JSON_PRETTY_PRINT);
+        file_put_contents("includes/data/guitars.json",$json);
+        header("Location: ../home");
+    }
+
+    function get_next_id(array $tab) : int{
+        $id = 0;
+        foreach($tab as $key => $guitar){
+            if($guitar['id'] > $id){
+                $id = $guitar['id'];
+            }
+        }
+        return $id+1;
+    }

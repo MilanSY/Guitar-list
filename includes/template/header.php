@@ -3,7 +3,7 @@
         <a href="<?= $left_path ?>"><button><?= $left_button ?></button></a>
     <?php }else{ ?>
         <div class="connected">
-            <img src="./assets/images/users/<?= $_SESSION["image"] ?>">
+            <img src="<?= $link ?>assets/images/users/<?= $_SESSION["image"] ?>">
             <button id="btn_session"><?= $_SESSION['name'] ?></button>
             <div id="div_session">
                 <a href="../deconnexion"><button>déconnexion</button></a>

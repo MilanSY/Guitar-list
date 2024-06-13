@@ -5,7 +5,8 @@
         "couleur": "rouge",
         "forme": "Stratocaster",
         "marque": "Fender",
-        "bois": "\u00c9pic\u00e9a"
+        "bois": "\u00c9pic\u00e9a",
+        "id": 0
     },
     {
         "nom": "SG Standard Sideways Vibrola",
@@ -13,7 +14,8 @@
         "couleur": "Vintage cherry",
         "forme": "SG",
         "marque": "Gibson",
-        "bois": "\u00e9rable"
+        "bois": "\u00e9rable",
+        "id": 1
     },
     {
         "nom": "Ibanez GRGR330EXBKF RG Gio",
@@ -21,7 +23,8 @@
         "couleur": "Blanc",
         "forme": "Hyper Strat",
         "marque": "Ibanez",
-        "bois": "Acajou"
+        "bois": "Acajou",
+        "id": 2
     },
     {
         "nom": "Yamaha Pacifica",
@@ -29,7 +32,8 @@
         "couleur": "Cr\u00e8me",
         "forme": "Super Strat",
         "marque": "Yamaha",
-        "bois": "Tilleul"
+        "bois": "Tilleul",
+        "id": 3
     },
     {
         "nom": "Squier Jazzmaster",
@@ -37,7 +41,8 @@
         "couleur": "Blanc",
         "forme": "Jazzmaster",
         "marque": "Squier by Fender",
-        "bois": "\u00c9pic\u00e9a"
+        "bois": "\u00c9pic\u00e9a",
+        "id": 4
     },
     {
         "nom": "PRS SE CE 24 TU",
@@ -45,7 +50,8 @@
         "couleur": "Bleu",
         "forme": "PRS",
         "marque": "PRS",
-        "bois": "Ch\u00eane"
+        "bois": "Ch\u00eane",
+        "id": 5
     },
     {
         "nom": "Squier Thinline",
@@ -53,7 +59,8 @@
         "couleur": "verte",
         "forme": "Thinline",
         "marque": "Squier by Fender",
-        "bois": "Boulot"
+        "bois": "Boulot",
+        "id": 6
     },
     {
         "nom": "PRS SE",
@@ -61,7 +68,8 @@
         "couleur": "Silver Sky",
         "forme": "Stratocasteur",
         "marque": "PRS",
-        "bois": "Bois"
+        "bois": "Bois",
+        "id": 7
     },
     {
         "nom": "Fender Parlor",
@@ -69,38 +77,52 @@
         "couleur": "bois",
         "forme": "Acoustic",
         "marque": "Fender",
-        "bois": "Sapin"
+        "bois": "Sapin",
+        "id": 8
     },
     {
-        "nom": "g",
-        "image": "guitar-id-9.png",
-        "couleur": "n",
-        "forme": "n",
-        "marque": "n",
-        "bois": "n"
-    },
-    {
-        "nom": "guitar",
+        "nom": "sasha",
         "image": "guitar-id-10.png",
-        "couleur": "guitar",
-        "forme": "guitar",
-        "marque": "guitar",
-        "bois": "guitar"
+        "couleur": "a",
+        "forme": "a",
+        "marque": "a",
+        "bois": "a",
+        "id": 10
     },
     {
-        "nom": "s",
+        "nom": "allan",
         "image": "guitar-id-11.png",
-        "couleur": "szdaz",
-        "forme": "s",
-        "marque": "s",
-        "bois": "Sapindfbbfdb"
+        "couleur": "a",
+        "forme": "a",
+        "marque": "a",
+        "bois": "a",
+        "id": 11
     },
     {
-        "nom": "c",
+        "nom": "Djimmy",
         "image": "guitar-id-12.png",
-        "couleur": "c",
-        "forme": "c",
-        "marque": "c",
-        "bois": "c"
+        "couleur": "d",
+        "forme": "d",
+        "marque": "d",
+        "bois": "d",
+        "id": 12
+    },
+    {
+        "nom": "z",
+        "image": "guitar-id-13.png",
+        "couleur": "az",
+        "forme": "az",
+        "marque": "aze",
+        "bois": "aze",
+        "id": 13
+    },
+    {
+        "nom": "l",
+        "image": "guitar-id-14.png",
+        "couleur": "k",
+        "forme": "l",
+        "marque": "l",
+        "bois": "k",
+        "id": 14
     }
 ]

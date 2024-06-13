@@ -24,7 +24,7 @@
         <div class="guitar">
             <img class="guitar__image" src="./assets/images/guitars/<?= $guitar['image']?>"/>
             <h2><?= $guitar['nom']?></h2>
-            <a href="/details?id=<?= $key+3*intval($_GET['paging']-1) ?>">
+            <a href="/details?id=<?= $guitar['id'] ?>">
                 <button>Voir en détails</button>
             </a>
         </div>
