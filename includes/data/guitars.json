@@ -115,14 +115,5 @@
         "marque": "aze",
         "bois": "aze",
         "id": 13
-    },
-    {
-        "nom": "l",
-        "image": "guitar-id-14.png",
-        "couleur": "k",
-        "forme": "l",
-        "marque": "l",
-        "bois": "k",
-        "id": 14
     }
 ]
