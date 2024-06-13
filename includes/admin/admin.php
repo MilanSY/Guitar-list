@@ -1,50 +1,30 @@
 <?php
-var_dump($paging_incoming);
-    if(empty($_GET['paging'])){
-        $_GET['paging'] = "1";
-    }
-    if($_GET['paging'] < 1){
-        $_GET['paging'] = "1";
-    }
-    if($_GET['paging'] > count($paging_incoming)){
-        $_GET['paging'] = count($paging_incoming);
-    }
-    $list = $paging_incoming[$_GET['paging']];
 
-?>
+if($_SESSION['role'] !== 'admin'){
+    header("Location: ../home");
+    die();
+}
 
-<div class="guitar-container">
+$url = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-    <?php
+if ($url === '/admin'){
+    $url = "/admin/incoming";
+}
 
-    foreach($list as $key => $guitar){
-    ?>
-
-        <div class="guitar">
-            <img class="guitar__image" src="./assets/images/guitars/incoming/<?= $guitar['image']?>"/>
-            <h2><?= $guitar['nom']?></h2>
-            <a href="/details?id=<?= $key+3*intval($_GET['paging']-1) ?>">
-                <button>Voir en détails</button>
-            </a>
-        </div>
-    
-    <?php } ?>
-    
-
-</div>
-
-<div class="paging">
-    
-    <a <?php if(!($_GET['paging'] <= 1)){?>href="?paging=<?= $_GET['paging']-1 ?>" <?php } ?>><button><</button></a>
-    <?php 
-    foreach($paging_incoming as $key => $tab){ 
-    ?>
-
-        <a href="?paging=<?= $key ?>">
-            <button <?php if($key == $_GET['paging']){echo 'style="background-color:#208253;"';} ?> ><?= $key ?></button>
-        </a>
-
-    <?php }?>
-    <a <?php if (!($_GET['paging'] >= count($paging_incoming))){ ?>href="?paging=<?= $_GET['paging']+1 ?>" <?php } ?>><button>></button></a>
-    
-</div>
+switch ($url){
+    case "/admin/incoming":
+        include_once("./includes/admin/demandes.php");
+        break;
+    case "/admin/details":
+        include_once("./includes/admin/details.php");
+        break;
+    case "/admin/modifier":
+        include_once("./includes/admin/modify.php");
+        break;
+    case "/admin/supprimer":
+        include_once("./includes/admin/delete.php");
+        break;
+    case "/admin/ajouter":
+        include_once("./includes/admin/add.php");
+        break;
+}
