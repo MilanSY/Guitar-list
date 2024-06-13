@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Data;
 
 
 $json = file_get_contents("includes/data/guitars.json");

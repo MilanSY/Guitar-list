@@ -17,6 +17,7 @@
     { $link = "./"; }
     $uri = "/".$path[1];
 
+    
     $left_button = "connexion";
     $left_path = "../connexion";
     $right_button = "ajouter";
