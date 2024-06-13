@@ -8,6 +8,14 @@
     if($_GET['paging'] > count($paging_incoming)){
         $_GET['paging'] = count($paging_incoming);
     }
+    if(empty($incoming)){
+        ?>
+        <div class="guitar-container">
+            <h1> Il n'y a aucune demande pour le moment</h1>
+        </div>
+        <?php
+        die();
+    }
     $list = $paging_incoming[$_GET['paging']];
 
 ?>

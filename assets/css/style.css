@@ -17,6 +17,7 @@
 body {
   font-family: "Hind";
   margin: 0;
+  padding: 0;
   background-color: #f8f2e2;
 }
 
@@ -99,14 +100,13 @@ button:hover {
 }
 
 .guitar-container {
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-wrap: row;
   justify-content: center;
   gap: 5%;
+  padding: 2.5rem 0;
   background-color: #f8f2e2;
-  padding: 3rem 5%;
-  margin-left: -1vw;
 }
 .guitar-container .guitar {
   width: 25vw;
