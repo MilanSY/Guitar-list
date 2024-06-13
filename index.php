@@ -8,13 +8,20 @@
     include_once("includes/functions/functions.php");
     include_once("includes/data/data.php");
 
-
     $uri = parse_url($_SERVER["REQUEST_URI"])["path"];
+
+    $path = explode("/",$uri);
+    if(isset($path[2]))
+    {$link = "../"; }
+    else
+    { $link = "./"; }
+    $uri = "/".$path[1];
 
     $left_button = "connexion";
     $left_path = "../connexion";
     $right_button = "ajouter";
     $right_path = "../ajouter";
+
 
     switch ($uri){
         

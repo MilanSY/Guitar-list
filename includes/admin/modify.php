@@ -41,7 +41,7 @@
 
             foreach($values as $key => $value){
                 if ($key === "image"){
-                    $new_name = "guitar-id-".$_GET['id'].".png";
+                    $new_name = "incoming-id-".$_GET['id'].".png";
                     $values[$key] = $new_name ;
                 }
                 else if(!empty($value)){
@@ -59,33 +59,34 @@
             if(empty_array($errors) && $_SESSION['role'] === 'admin'){
                 if (!empty($_FILES ["fichier_image"]['name']))
                 {
-                    $uploads_dir = './assets/images/guitars/';
+                    $uploads_dir = "./assets/images/guitars/incoming/";
                     $tmp_name = $_FILES["fichier_image"]["tmp_name"];
-                    $new_name = "guitar-id-".$_GET['id'];
+                    $new_name = "incoming-id-".$_GET['id'];
                     $destination = $uploads_dir . $new_name . "." . "png"; 
                     if (move_uploaded_file($tmp_name, $destination )) {
-                        $fileContents = file_get_contents($destination);
-                        $guitars[get_key_by_id($_GET['id'], $guitars)] = $values;
-                        $json = json_encode($guitars, JSON_PRETTY_PRINT);
-                        file_put_contents("includes/data/guitars.json",$json);
-                        header("Location: ../details?id=".$_GET['id']);
+                        $values['id'] = intval($values['id']);
+                        $incoming[get_key_by_id($_GET['id'], $incoming)] = $values;
+                        $json = json_encode($incoming, JSON_PRETTY_PRINT);
+                        file_put_contents("includes/data/incoming.json",$json);
+                        header("Location: ../admin/details?id=".$_GET['id']);
                     } else {
                         $errors['image'] = "echec de l'envoi du fichier";
                         $displays['image'] = "block";
                     }
                 }
                 else{
-                    $guitars[get_key_by_id($_GET['id'], $guitars)] = $values;
-                    $json = json_encode($guitars, JSON_PRETTY_PRINT);
-                    file_put_contents("includes/data/guitars.json",$json);
-                    header("Location: ../details?id=".$_POST['id']);
+                    $values['id'] = intval($values['id']);
+                    $incoming[get_key_by_id($_GET['id'], $incoming)] = $values;
+                    $json = json_encode($incoming, JSON_PRETTY_PRINT);
+                    file_put_contents("includes/data/incoming.json",$json);
+                    header("Location: ../admin/details?id=".$_POST['id']);
                 }
             }
         }
     }
     else
     {
-        foreach($guitars[get_key_by_id($_GET['id'], $guitars)] as $key => $value){
+        foreach($incoming[get_key_by_id($_GET['id'], $incoming)] as $key => $value){
             if($key != "method" && $key != "id"){
                 $values[$key] = strip_tags($value);
             }
@@ -100,8 +101,8 @@
                 <input type="hidden" name="method" id="method" value="modifier">
                 <label for="fichier_image">fichier image: (png, jpeg, jpg, webp)*<br>
                     <div>
-                        <p id="fichier_image_choisit"><?= $guitars[get_key_by_id($_GET['id'], $guitars)]['image'] ?></p>
-                        <img src="./assets/images/svg/cloud.svg">
+                        <p id="fichier_image_choisit"><?= $incoming[get_key_by_id($_GET['id'], $incoming)]['image'] ?></p>
+                        <img src="<?= $link ?>assets/images/svg/cloud.svg">
                     </div>
                     <input type="file" accept="image/png, image/jpeg, image/jpg, image/webp" id="fichier_image"  name="fichier_image" hidden/>
                 </label>
@@ -125,5 +126,4 @@
 
             </form>
         </div>
-        <script src="./assets/scripts/modify.js"></script>
-    
+        <script src="<?= $link ?>assets/scripts/modify.js"></script>
