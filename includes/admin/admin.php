@@ -1,17 +1,17 @@
 <?php
 
-if($_SESSION['role'] !== 'admin'){
+if ($_SESSION['role'] !== 'admin') {
     header("Location: ../home");
     die();
 }
 
 $url = parse_url($_SERVER["REQUEST_URI"])["path"];
 
-if ($url === '/admin'){
+if ($url === '/admin') {
     $url = "/admin/incoming";
 }
 
-switch ($url){
+switch ($url) {
     case "/admin/incoming":
         include_once("./includes/admin/demandes.php");
         break;

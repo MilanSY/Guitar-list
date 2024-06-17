@@ -1,15 +1,15 @@
-var btn_session = document.getElementById("btn_session");
-var div_session = document.getElementById("div_session");
+var burger_menu = document.getElementById("burger_menu");
+var burger_menu_out = document.getElementById("burger_menu_out");
+var side_bar = document.getElementById("side_bar");
 
-btn_session.addEventListener("click",function(){
-    if (div_session.style.display === "none"){
-        div_session.style.display = "flex";
-        div_session.style.animation = "appear 0.5s";
-    }
-    else{
-        div_session.style.animation = "disappear 0.5s";
-        setTimeout(function(){
-            div_session.style.display = "none";
-        },500)
-    }
-});
+burger_menu.addEventListener("click",openNav);
+
+burger_menu_out.addEventListener("click",closeNav);
+
+function openNav() {
+    side_bar.style.marginLeft = "0px";
+}
+
+function closeNav() {
+    side_bar.style.marginLeft = "-350px";
+}

@@ -1,29 +1,24 @@
-
 <?php
 
-$errors=[
+$errors = [
     "email" => "",
     "password" => ""
 ];
 
-$display=[
+$display = [
     "email" => "none",
     "password" => "none"
 ];
-if(!empty($_POST)){
-    if (!empty($_POST['email'])){
-        if(password_verify($_POST['password'], $users[$_POST['email']]['password'])){
+if (!empty($_POST)) {
+    if (!empty($_POST['email'])) {
+        if (password_verify($_POST['password'], $users[$_POST['email']]['password'])) {
             $_SESSION = $users[$_POST['email']];
             header("Location: ../home");
-        }
-        else
-        {
+        } else {
             $errors['password'] = "email ou mot de passe incorrect";
             $displays['password'] = "block";
         }
-    }
-    else
-    {
+    } else {
         $errors['email'] = "Ce champs est obligatoire";
         $displays['email'] = "block";
     }

@@ -1,25 +1,29 @@
 <header>
-    <?php if (empty($_SESSION)){?>
-        <a href="<?= $left_path ?>"><button><?= $left_button ?></button></a>
-    <?php }else{ ?>
-        <div class="connected">
-            <img src="<?= $link ?>assets/images/users/<?= $_SESSION["image"] ?>">
-            <button id="btn_session"><?= $_SESSION['name'] ?></button>
-            <div id="div_session">
-                <a href="../deconnexion"><button>déconnexion</button></a>
-                <?php
-                if ($_SESSION["role"] === "admin"){ ?>
-                    <a href="../admin"><button>admin</button></a>
-                <?php } ?>
-            </div>
-        </div>
-    <?php } ?>
+    <div>
+        <button id="burger_menu"><img src="<?= $link ?>assets/images/svg/menu.svg"></button>
+    </div>
 
-    
-    <h1><?= $header_title ?></h1>
-    <a href="<?= $right_path ?>"><button><?= $right_button ?></button></a>
+    <div>
+        <h1><?= $header_title ?></h1>
+    </div>
+
+    <div>
+        <a href="<?= $right_path ?>"><button><?= $right_button ?></button></a>
+    </div>
 </header>
-<?php
-if (!empty($_SESSION)){?>
-    <script src="./assets/scripts/header.js"></script>
-<?php } ?>
+<div class="flex-side-bar" id="flex_side_bar">
+    <div class="side-bar" id="side_bar">
+        <div>
+            <h1>Menu</h1>
+            <button id="burger_menu_out"><img src="<?= $link ?>assets/images/svg/menu.svg"></button>
+            </div>
+        <div >
+            <a href="<?= $link ?>home"><button>accueil</button></a>
+            <a href="<?= $link ?>admin"><button>admin</button></a>
+            <a href="<?= $link ?>deconnexion"><button>déconnexion</button></a>
+        </div>
+    </div>
+    <div id="background_side_bar"></div>
+</div>
+
+<script src="./assets/scripts/header.js"></script>
